@@ -1,70 +1,193 @@
-# Getting Started with Create React App
+# 📘 TP 5 : Gestion de l’état et structuration des composants React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🎯 Objectif
 
-## Available Scripts
+Ce TP a pour but de découvrir les concepts fondamentaux de React :
 
-In the project directory, you can run:
+* Création de formulaires (contrôlés et non contrôlés)
+* Gestion de l’état avec `useState`
+* Partage des données entre composants (Lifting State Up)
+* Utilisation du **Context React** pour gérer des données globales
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Technologies utilisées
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* React JS
+* JavaScript (ES6)
+* HTML / CSS
+* Hooks React (`useState`, `useRef`, `useContext`)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Installation et lancement
 
-### `npm run build`
+### 1. Créer le projet
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npx create-react-app tp-react-debutant
+cd tp-react-debutant
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Installer les dépendances
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+### 3. Lancer l’application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📁 Structure du projet
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+src/
+│
+├── App.js
+├── App.css
+├── FormulaireControle.js
+├── FormulaireNonControle.js
+├── FormulaireInscription.js
+├── TemperatureConvertor.js
+├── TemperatureInput.js
+├── UtilisateurContext.js
+├── Profil.js
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧩 Fonctionnalités réalisées
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. Formulaire contrôlé
 
-### Code Splitting
+* Utilisation de `useState`
+* Les champs sont liés à l’état React
+* Mise à jour en temps réel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+✔ Exemple :
 
-### Analyzing the Bundle Size
+```js
+const [nom, setNom] = useState('');
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### 2. Formulaire non contrôlé
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* Utilisation de `useRef`
+* Lecture directe des valeurs depuis le DOM
 
-### Advanced Configuration
+✔ Exemple :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```js
+nomRef.current.value
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 3. Formulaire d’inscription
 
-### `npm run build` fails to minify
+* Champs : Nom, Email, Mot de passe
+* Validation simple
+* Message de confirmation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+### 4. Convertisseur de température
+
+* Conversion Celsius ↔ Fahrenheit
+* Synchronisation de deux champs
+* Calcul dynamique
+
+✔ Formules utilisées :
+
+* °F = (°C × 9/5) + 32
+* °C = (°F − 32) × 5/9
+
+---
+
+### 5. Lifting State Up
+
+* L’état est stocké dans le composant parent
+* Transmission via props à l’enfant
+
+✔ Objectif :
+Partager les données entre composants
+
+---
+
+### 6. Context React
+
+* Création d’un contexte utilisateur
+* Partage global des données
+
+✔ Exemple :
+
+```js
+const { utilisateur } = useContext(UtilisateurContext);
+```
+
+---
+
+### 7. Profil utilisateur
+
+* Affichage du nom
+* Déconnexion / reconnexion
+* Modification dynamique du nom
+
+---
+
+## 🎨 Améliorations UI
+
+* Interface moderne avec CSS
+* Cartes (cards)
+* Boutons stylisés
+* Responsive design
+
+---
+
+## 🧠 Concepts appris
+
+* useState
+* useRef
+* useContext
+* Props
+* Lifting State Up
+* Gestion des formulaires
+* Architecture des composants
+
+---
+
+## 📊 Résultat final
+
+L’application contient :
+
+* ✔ Formulaire contrôlé
+* ✔ Formulaire non contrôlé
+* ✔ Formulaire d’inscription
+* ✔ Convertisseur de température
+* ✔ Gestion utilisateur avec Context
+
+
+https://github.com/user-attachments/assets/659212a6-a9b2-4b8c-a6af-215b3286e8e2
+
+
+---
+
+
+## ✅ Conclusion
+
+Ce TP permet de maîtriser les bases essentielles de React :
+
+* gestion de l’état
+* communication entre composants
+* structuration d’une application
+
+Ces notions sont indispensables pour développer des applications modernes avec React.
+
+---
